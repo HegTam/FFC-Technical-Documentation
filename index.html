@@ -1,12 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>
+          <h1>CSS documentation</h1>
+          <a href="" id=""></a>
+          <a href="" id=""></a>
+          <a href="" id=""></a>
+          <a href="" id=""></a>
+      </header>
+      <a href="#So_what_is_CSS,_really?" class="nav-link">So what is CSS, really?</a>
+      <a href="#Anatomy_of_a_CSS_ruleset" class="nav-link">Anatomy of a CSS ruleset</a>
+      <a href="#Selecting_multiple_elements" class="nav-link">Selecting multiple elements</a>
+      <a href="#Different_types_of_selectors"" class="nav-link">Different types of selectors</a>
+      <a href="#Fonts_and_text" class="nav-link">Fonts and text</a>
+    </nav>
+    <header id="main-header">
+        <h2>Basics</h2>
+        <p>
+            CSS (Cascading Style Sheets) is the code you use to style your webpage.
+            CSS basics takes you through what you need to get started. We'll answer
+            questions like: How do I make my text black or red? How do I make my
+            content show up in such-and-such a place on the screen? How do I
+            decorate my webpage with background images and colors?
+        </p>
+    </header>
+    <main id="main-doc">
+      <section class="main-section" id="So_what_is_CSS,_really?">
+        <header>
+          <h2>So what is CSS, really?</h2>
+        </header>
+        <p>
+          Like HTML, CSS is not really a programming language. It is not a
+          markup language either — it is a style sheet language. This means that
+          it lets you apply styles selectively to elements in HTML documents.
+          For example, to select all the paragraph elements on an HTML page and
+          turn the text within them red, you'd write this CSS:
+        </p>
+        <code>p { color: red; }</code>
+        <p>
+          But we still need to apply the CSS to your HTML document. Otherwise,
+          the CSS styling won't affect how your browser displays the HTML
+          document. (If you haven't been following on with our project, read
+          Dealing with files and HTML basics to find out what you need to do
+          first.)
+        </p>
+        <ol>
+          <li>
+            Open your index.html file and paste the following line somewhere in
+            the head (that is, between the <code>&lt;head&gt;</code> and
+            <code>&lt;/head&gt;</code> tags): <br />
+            <code>&lt;link href="styles/style.css" rel="stylesheet"&gt;</code>
+          </li>
+          <li>Save <code> index.html</code> and load it in your browser.</li>
+        </ol>
+      </section>
+      <section class="main-section" id="Anatomy_of_a_CSS_ruleset">
+        <header>
+          <h2>Anatomy of a CSS ruleset</h2>
+        </header>
+        <p>Let's look at the above CSS in a bit more detail:</p>
+        <img
+          src="https://mdn.mozillademos.org/files/9461/css-declaration-small.png"
+          alt="anatomy of css"
+        />
+        <p>
+          The whole structure is called a rule set (but often "rule" for short).
+          Note the names of the individual parts:
+        </p>
+        <h3>Selector</h3>
+        <p>
+          The HTML element name at the start of the rule set. It selects the
+          element(s) to be styled (in this case,
+          <code>&lt;p&gt;</code> elements). To style a different element, just
+          change the selector.
+        </p>
+        <h3>Declaration</h3>
+        <p>
+          A single rule like <code>color: red;</code> specifying which of the
+          element's properties you want to style.
+        </p>
+        <h3>Properties</h3>
+        <p>
+          Ways in which you can style a given HTML element. (In this case,
+          <code>color</code> is a property of the
+          <code>&lt;p&gt;</code> elements.) In CSS, you choose which properties
+          you want to affect in your rule.
+        </p>
+        <h3>Property value</h3>
+        <p>
+          To the right of the property, after the colon, we have the property
+          value, which chooses one out of many possible appearances for a given
+          property (there are many <code>color</code> values besides
+          <code>red</code>).
+        </p>
+        <p>Note the other important parts of the syntax:</p>
+        <ul>
+          <li>
+            Each rule set (apart from the selector) must be wrapped in curly
+            braces (<code>{}</code>).
+          </li>
+          <li>
+            Within each declaration, you must use a colon (<code>:</code>) to
+            separate the property from its values.
+          </li>
+          <li>
+            Within each rule set, you must use a semicolon (<code>;</code>) to
+            separate each declaration from the next one.
+          </li>
+        </ul>
+      </section>
+      <section class="main-section" id="Selecting_multiple_elements">
+        <header>
+          <h2>Selecting multiple elements</h2>
+        </header>
+        <p>
+          You can also select multiple types of elements and apply a single rule
+          set to all of them. Multiple selectors are separated by commas. For
+          example:
+        </p>
+        <code>p, li, h1 { color: red; }</code>
+      </section>
+      <section class="main-section" id="Different_types_of_selectors">
+        <header>
+          <h2>Different types of selectors</h2>
+        </header>
+        <p>
+          There are many different types of selectors. Above, we only looked at
+          element selectors, which select all elements of a given type in the
+          given HTML documents. But we can make more specific selections than
+          that. Here are some of the more common types of selectors:
+        </p>
+        <table class="standard-table">
+          <thead>
+            <tr>
+              <th scope="col">Selector name</th>
+              <th scope="col">What does it select</th>
+              <th scope="col">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Element selector (sometimes called a tag or type selector)
+              </td>
+              <td>All HTML element(s) of the specified type.</td>
+              <td>
+                <code>p</code><br />
+                Selects <code>&lt;p&gt;</code>
+              </td>
+            </tr>
+            <tr>
+              <td>ID selector</td>
+              <td>
+                The element on the page with the specified ID. On a given HTML
+                page, it's best practice to use one element per ID (and of
+                course one ID per element) even though you are allowed to use
+                same ID for multiple elements.
+              </td>
+              <td>
+                <code>#my-id</code><br />
+                Selects <code>&lt;p id="my-id"&gt;</code> and
+                <code>&lt;a id="my-id"&gt;</code>
+              </td>
+            </tr>
+            <tr>
+              <td>Class selector</td>
+              <td>
+                The element(s) on the page with the specified class (multiple
+                class instances can appear on a page).
+              </td>
+              <td>
+                <code>.my-class</code><br />
+                Selects <code>&lt;p class="my-class"&gt;</code> and
+                <code>&lt;a class="my-class"&gt;</code>
+              </td>
+            </tr>
+            <tr>
+              <td>Attribute selector</td>
+              <td>The element(s) on the page with the specified attribute.</td>
+              <td>
+                <code>img[src]</code><br />
+                Selects <code>&lt;img src="myimage.png"&gt;</code> but not
+                <code>&lt;img&gt;</code>
+              </td>
+            </tr>
+            <tr>
+              <td>Pseudo-class selector</td>
+              <td>
+                The specified element(s), but only when in the specified state
+                (e.g. being hovered over).
+              </td>
+              <td>
+                <code>a:hover</code><br />
+                Selects <code>&lt;a&gt;</code>, but only when the mouse pointer
+                is hovering over the link.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="main-section" id="Fonts_and_text">
+        <header>
+          <h2>Fonts and text</h2>
+        </header>
+        <ol>
+          <li>
+            First of all, go back and find the
+            <a
+              href="/en-US/Learn/Getting_started_with_the_web/What_should_your_web_site_be_like#Font"
+              >output from Google Fonts</a
+            >
+            that you stored somewhere safe. Add the
+            <a
+              href="/en-US/docs/Web/HTML/Element/link"
+              title='The HTML External Resource Link element (<link>) specifies relationships between the current document and an external resource. This element is most commonly used to link to stylesheets, but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.'
+              ><code>&lt;link&gt;</code></a
+            >
+            element somewhere inside your <code>index.html</code>'s head (again,
+            anywhere between the
+            <a
+              href="/en-US/docs/Web/HTML/Element/head"
+              title="The HTML <head> element contains machine-readable information (metadata) about the document, like its title, scripts, and style sheets."
+              ><code>&lt;head&gt;</code></a
+            >
+            and <code>&lt;/head&gt;</code> tags). It'll look something like
+            this:
+
+            <code
+              >&lt;link
+              href="https://fonts.googleapis.com/css?family=Open+Sans"rel="stylesheet"&gt;</code
+            >
+            This code links your page to a stylesheet that downloads the Open
+            Sans font family along with your web page and enables you to set it
+            on your HTML elements using your own style sheet.
+          </li>
+          <li>
+            Next, delete the existing rule you have in your
+            <code>style.css</code> file. It was a good test, but red text
+            doesn't actually look very good.
+          </li>
+          <li>
+            Add the following lines in its place, replacing the placeholder line
+            with the actual <code>font-family</code> line you got from Google
+            Fonts. (<code>font-family</code> just means the font(s) you want to
+            use for your text.) This rule first sets a global base font and font
+            size for the whole page (since
+            <a
+              href="/en-US/docs/Web/HTML/Element/html"
+              title="The HTML <html> element represents the root (top-level element) of an HTML document, so it is also referred to as the root element. All other elements must be descendants of this element."
+              ><code>&lt;html&gt;</code></a
+            >
+            is the parent element of the whole page, and all elements inside it
+            inherit the same <code>font-size</code> and
+            <code>font-family</code>):<br />
+            <code
+              >html { font-size: 10px; /* px means "pixels": the base font size
+              is now 10 pixels high */ font-family: "Open Sans", sans-serif; /*
+              this should be the rest of the output you got from Google fonts */
+              }</code
+            >
+            <p>
+              <strong>Note</strong>: Anything in a CSS document between
+              <code>/*</code> and <code>*/</code> is a
+              <strong>CSS comment</strong>, which the browser ignores when it
+              renders the code. This is a place for you to write helpful notes
+              on what you are doing.
+            </p>
+          </li>
+          <li>
+            Now we'll set font sizes for text-containing elements inside the
+            HTML body (<a
+              href="/en-US/docs/Web/HTML/Element/h1"
+              title="REDIRECT Heading elements [en-US]"
+              ><code>&lt;h1&gt;</code></a
+            >,
+            <a
+              href="/en-US/docs/Web/HTML/Element/li"
+              title="The HTML <li> element is used to represent an item in a list."
+              ><code>&lt;li&gt;</code></a
+            >, and
+            <a
+              href="/en-US/docs/Web/HTML/Element/p"
+              title="The HTML <p> element represents a paragraph."
+              ><code>&lt;p&gt;</code></a
+            >). We'll also center the text of our heading and set some line
+            height and letter spacing on the body content to make it a bit more
+            readable: <br />
+            <code
+              >h1 { <br />
+              font-size: 60px; text-align: center; } <br />
+              p, li { <br />
+              font-size: 16px; line-height: 2; letter-spacing: 1px; }</code
+            >
+          </li>
+        </ol>
+      </section>
+    </main>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
 </html>
